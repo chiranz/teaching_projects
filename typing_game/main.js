@@ -4,15 +4,6 @@ const inputField = document.getElementById("input_field");
 const message = document.getElementById("message");
 let currentWordIndex = 0;
 
-// Constants cannot be assigned values but can be modified
-// THIS DOES NOT WORK BECAUSE WE ARE ASSIGNING VALUE TO CONSTANT
-// message = "Some message"
-
-// THIS DOES WORK BECAUSE WE ARE MODIFYING THE VALUE OF CONSTANT
-// const newone = {};
-// newone.name = "something";
-// console.log(newone);
-
 const quoteArray = [
   "A",
   "quick",
@@ -29,15 +20,6 @@ const spanArray = quoteArray.map((quote, i) => `<span>${quote} </span>`);
 quoteText.innerHTML = spanArray.join("");
 
 quoteText.childNodes[5].className = "highlight";
-
-// TODO: LOOPS AND ARRAY METHODS
-
-// const sentence1 =" prefix" + quoteArray[0] + "suffix " ;
-// const sentence2 = "prefix " + quoteArray[1] + "suffix " ;
-// .
-// .
-// .
-// .
 
 // Loop and Conditionals
 let arrayOfSentences = [];
@@ -60,18 +42,228 @@ for (let i = 0; i < numbers.length; i++) {
   }
 }
 
-console.log(evenNumbers);
+// DATA STRUCTURES
 
-// console.log({ arrayFromMap });
-// console.log({ arrayOfSentences });
+// Premitive data types
+//  bool, str, number, null, undefined
+// let myStr = "strkglkfdfkj";
+// let myStr1 = "str1";
 
-// const user = {
-//   name: "something",
-//   image: "url",
-//   tagline: "some tag",
-//   email: "some@email",
-// };
+// const myArr = new Array()
+// const myArr = [1, 2, 3, "four", undefined, 6, {}];
 
-// const arrayUser = ["something", "url", "some tag", "some@email"];
-// arrayUser[1];
-// user.image;
+// console.log(myArr.slice(1, 4));
+// console.log(myArr.slice(3, 10));
+
+// console.log(myArr[1]);
+const field = "age";
+const item = {
+  name: null,
+  price: null,
+  qty: null,
+  estimatedDeliverDate: new Date().getTime(),
+};
+
+// THESE TWO ARE SAME
+// const myObj = new Object()
+// const myObj = {}
+
+// OBJECTS AND ARRAYS ALWAYS MAKE REFERENCE TO ORIGINAL
+// AND ORIGINAL GETS MODIFIED IF REFERENCED VALUE IS MODIFIED
+// let newItem = item;
+
+// newItem.name = "new item";
+// console.log(item);
+const newItem = { ...item };
+newItem.name = "new item";
+console.log(item);
+
+// let username = user.name
+
+const marksOfStudents = [
+  {
+    name: "Rahul",
+    marks: { english: 90, maths: 30, science: 40 },
+    phoneNumber: 93845,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+  {
+    name: "aswin",
+    marks: { english: 50, maths: 90, science: 20 },
+    phoneNumber: 3984584,
+  },
+];
+
+for (let i = 0; i < marksOfStudents.length; i++) {
+  const studentObj = marksOfStudents[i];
+  console.log(studentObj.name, studentObj.marks.english);
+}
+
+const user = {
+  username: "",
+  email: "",
+  bookings: [
+    {
+      status: "confirmed",
+      cost: 1200,
+      dayOfBooking: new Date(),
+      bookedFor: new Date(),
+    },
+    {
+      status: "pending",
+      cost: 1300,
+      dayOfBooking: new Date(),
+      bookedFor: new Date(),
+    },
+    {
+      status: "completed",
+      cost: 1400,
+      dayOfBooking: new Date(),
+      bookedFor: new Date(),
+    },
+  ],
+};
+
+let totalCost = 0;
+for (let i = 0; i < user.bookings.length; i++) {
+  totalCost = totalCost + user.bookings[i].cost;
+  // totalCost += user.bookings[i].cost
+  // if this is the end of the loop? yes i = i + 1
+  // is i < user.bookings.length? yes == continue with the loop else skip the loop
+}
+console.log(totalCost);
+
+// const totalCost = user.bookings.reduce(
+//   (prevValue, booking) => prevValue + booking.cost,
+//   0
+// );
+// console.log("some", totalCost);
+
+// const marks = { rahul: 50, aswin: 60, abhi: 40, puspa: 49 };
+// const sumOfMarks = marks.rahul + marks.aswin + marks.abhi + marks.puspa;
+// console.log(`Average marks = ${sumOfMarks / length}`);
+
+const marks = [
+  { name: "rahul", avgmarks: 50 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "rahul", avgmarks: 50 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+  { name: "aswin", avgmarks: 60 },
+  { name: "abhi", avgmarks: 40 },
+  { name: "puspa", avgmarks: 49 },
+];
+let totalMarks = 0;
+for (let i = 0; i < marks.length; i++) {
+  totalMarks += marks[i].avgmarks;
+}
+
+const length = marks.length;
+
+console.log(`Average marks = ${totalMarks / length}`);
