@@ -21,7 +21,7 @@ quoteText.innerHTML = spanArray.join("");
 
 quoteText.childNodes[5].className = "highlight";
 
-// Loop and Conditionals
+// Loop and conditionals in javascript
 let arrayOfSentences = [];
 for (let i = 0; i < quoteArray.length; i++) {
   const currentWord = quoteArray[i];
